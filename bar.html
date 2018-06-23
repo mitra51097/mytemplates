@@ -1,0 +1,43 @@
+<html>
+<head>
+<script>
+function draw()
+{
+var n =document.getElementById("num").value;
+var graphValues = n.split(',');
+//var graphValues=[40,50,60,50,64];
+//var graphValues =n;
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var width = 40;
+var X = 50;
+ctx.fillStyle='red';
+for(var i=0; i<graphValues.length;  i++)
+{
+var h =  graphValues[i];
+ctx.fillRect(X,canvas.height - h,width,h);
+X += width+15;
+}
+
+
+}
+
+function reset()
+{
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+</script>
+</head>
+<body align="center">
+enter the values seperated by comma
+<input type="text" name="char" id="num"><br>
+<input type="button" value="submit" onClick="draw()">
+<input type="button" value="clear" onClick="reset()"><br><br>
+<canvas id="myCanvas" width="700" height="500" style="border:1px solid #c3c3c3;background=yellow;">
+
+</canvas>
+</body>
+</html>
